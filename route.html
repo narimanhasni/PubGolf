@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Pub Golf - Route</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="route.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- App Header -->
+    <header class="app-header">
+      <h1><i class="fas fa-golf-ball"></i> Pub Golf</h1>
+      <div class="header-subtitle">Route Map</div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="app-content route-content">
+      <!-- Map Section -->
+      <div class="route-section" id="map-section">
+        <div class="section-header">
+          <h2><i class="fas fa-map"></i> Pub Route</h2>
+          <div class="map-actions">
+            <button id="center-map-btn" class="btn-action">
+              <i class="fas fa-crosshairs"></i> Center
+            </button>
+            <button id="directions-btn" class="btn-action">
+              <i class="fas fa-directions"></i> Directions
+            </button>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <!-- Google Maps will be displayed here -->
+          <div id="map"></div>
+          
+          <!-- Loading Indicator -->
+          <div id="map-loading" class="map-loading">
+            <div class="loading-spinner"></div>
+            <p>Loading map...</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pub Status Section -->
+      <div class="route-section" id="current-pub-section">
+        <div class="section-header">
+          <h2><i class="fas fa-beer"></i> Current Pub</h2>
+          <div class="pub-navigation">
+            <button id="prev-pub-btn" class="btn-nav">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <span id="pub-counter">1/8</span>
+            <button id="next-pub-btn" class="btn-nav">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="current-pub-details" id="current-pub-details">
+          <div class="pub-header">
+            <h3 id="current-pub-name">The King's Arms</h3>
+            <div class="pub-hole">
+              <span>Hole</span>
+              <div class="hole-number">1</div>
+            </div>
+          </div>
+          
+          <div class="pub-info-grid">
+            <div class="pub-info-item">
+              <i class="fas fa-beer"></i>
+              <div class="info-content">
+                <span class="info-label">Drink</span>
+                <span id="current-pub-drink" class="info-value">Pint of Lager</span>
+              </div>
+            </div>
+            
+            <div class="pub-info-item">
+              <i class="fas fa-flag"></i>
+              <div class="info-content">
+                <span class="info-label">Par</span>
+                <span id="current-pub-par" class="info-value">4</span>
+              </div>
+            </div>
+            
+            <div class="pub-info-item">
+              <i class="fas fa-clock"></i>
+              <div class="info-content">
+                <span class="info-label">Opening Hours</span>
+                <span id="current-pub-hours" class="info-value">12:00 - 23:00</span>
+              </div>
+            </div>
+            
+            <div class="pub-info-item">
+              <i class="fas fa-phone"></i>
+              <div class="info-content">
+                <span class="info-label">Contact</span>
+                <span id="current-pub-phone" class="info-value">020 1234 5678</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="pub-actions">
+            <button id="mark-visited-btn" class="pub-action-btn">
+              <i class="fas fa-check-circle"></i> Mark as Visited
+            </button>
+            <button id="pub-directions-btn" class="pub-action-btn">
+              <i class="fas fa-directions"></i> Get Directions
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pub List Section -->
+      <div class="route-section" id="pub-list-section">
+        <div class="section-header">
+          <h2><i class="fas fa-list"></i> All Pubs</h2>
+          <div class="pub-filter">
+            <select id="pub-status-filter">
+              <option value="all">All Pubs</option>
+              <option value="visited">Visited</option>
+              <option value="remaining">Remaining</option>
+            </select>
+          </div>
+        </div>
+        
+        <ul class="pub-list" id="pub-list">
+          <!-- Pub items will be dynamically generated -->
+        </ul>
+      </div>
+    </main>
+    
+    <!-- Bottom Navigation -->
+    <nav class="app-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="scorecard.html" class="nav-item">
+        <i class="fas fa-clipboard"></i>
+        <span>Scorecard</span>
+      </a>
+      <a href="route.html" class="nav-item active">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Route</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Google Maps API Script -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="route.js"></script>
+</body>
+</html>

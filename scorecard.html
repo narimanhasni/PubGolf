@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Pub Golf - Scorecard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scorecard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- App Header -->
+    <header class="app-header">
+      <h1><i class="fas fa-golf-ball"></i> Pub Golf</h1>
+      <div class="header-subtitle">Scorecard</div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="app-content scorecard-content">
+      <!-- Team Management Section -->
+      <div class="scorecard-section" id="team-section">
+        <div class="section-header">
+          <h2>Players</h2>
+          <button id="add-player-btn" class="btn-action">
+            <i class="fas fa-plus"></i> Add Player
+          </button>
+        </div>
+        
+        <div class="players-container" id="players-list">
+          <!-- Player entries will be added dynamically -->
+        </div>
+      </div>
+      
+      <!-- Golf-style Scorecard Section -->
+      <div class="scorecard-section" id="golf-scorecard-section">
+        <div class="section-header">
+          <h2>Scorecard</h2>
+          <button id="save-scores-btn" class="btn-action">
+            <i class="fas fa-save"></i> Save Scores
+          </button>
+        </div>
+        
+        <div class="golf-scorecard-container">
+          <table class="golf-scorecard">
+            <thead>
+              <tr class="pub-info-row">
+                <th class="player-column">Pub</th>
+                <!-- Pub names will be added dynamically -->
+              </tr>
+              <tr class="pub-drinks-row">
+                <th>Drink</th>
+                <!-- Drinks will be added dynamically -->
+              </tr>
+              <tr class="pub-par-row">
+                <th>Par</th>
+                <!-- Par values will be added dynamically -->
+              </tr>
+            </thead>
+            <tbody id="golf-scorecard-body">
+              <!-- Player scores will be added dynamically -->
+            </tbody>
+            <tfoot>
+              <tr class="total-row">
+                <th>Total</th>
+                <!-- Totals will be added dynamically -->
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Leaderboard Section -->
+      <div class="scorecard-section" id="leaderboard-section">
+        <div class="section-header">
+          <h2>Leaderboard</h2>
+          <div class="leaderboard-filter">
+            <select id="leaderboard-type">
+              <option value="total">Total Score</option>
+              <option value="vs-par">Score vs Par</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="leaderboard-container" id="leaderboard">
+          <!-- Leaderboard entries will be added dynamically -->
+        </div>
+      </div>
+    </main>
+    
+    <!-- Bottom Navigation -->
+    <nav class="app-nav">
+      <a href="index.html" class="nav-item">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="scorecard.html" class="nav-item active">
+        <i class="fas fa-clipboard"></i>
+        <span>Scorecard</span>
+      </a>
+      <a href="route.html" class="nav-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Route</span>
+      </a>
+    </nav>
+  </div>
+  
+  <!-- Modal for adding players -->
+  <div class="modal" id="add-player-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Player</h3>
+        <button class="close-modal"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="add-player-form">
+          <div class="form-group">
+            <label for="player-name">Player Name</label>
+            <input type="text" id="player-name" placeholder="Enter player name" required>
+          </div>
+          <div class="form-group">
+            <label>Avatar Color</label>
+            <div class="color-options">
+              <div class="color-option" style="background-color: #FF5252;" data-color="#FF5252"></div>
+              <div class="color-option" style="background-color: #7C4DFF;" data-color="#7C4DFF"></div>
+              <div class="color-option" style="background-color: #29B980;" data-color="#29B980"></div>
+              <div class="color-option" style="background-color: #FFC107;" data-color="#FFC107"></div>
+              <div class="color-option" style="background-color: #2196F3;" data-color="#2196F3"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Add Player</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scorecard.js"></script>
+</body>
+</html>

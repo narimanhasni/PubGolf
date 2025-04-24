@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Pub Golf</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- App Header -->
+    <header class="app-header">
+      <h1><i class="fas fa-golf-ball"></i> Pub Golf</h1>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="app-content">
+      <div class="welcome-card">
+        <h2>Welcome to Pub Golf!</h2>
+        <p>Ready for a night of fun? Navigate through the tabs below to get started.</p>
+      </div>
+      
+      <div class="feature-card" id="home-card">
+        <div class="card-content">
+          <h2><i class="fas fa-info-circle"></i> How to Play</h2>
+          <p>Pub Golf is a drinking game where each pub is a "hole" with a specific drink as your "club". The aim is to finish your drink in as few sips as possible.</p>
+        </div>
+      </div>
+      
+      <div class="feature-card" id="rules-card" onclick="showRulesModal()">
+        <div class="card-content">
+          <h2><i class="fas fa-clipboard-list"></i> Rules</h2>
+          <p>Click to view the complete rules of Pub Golf.</p>
+        </div>
+        <div class="card-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+      
+      <div class="feature-card scorecard-link" onclick="window.location.href='scorecard.html'">
+        <div class="card-content">
+          <h2><i class="fas fa-clipboard"></i> Go to Scorecard</h2>
+          <p>Track players and scores as you progress through the pubs.</p>
+        </div>
+        <div class="card-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+      
+      <div class="feature-card route-link" onclick="window.location.href='route.html'">
+        <div class="card-content">
+          <h2><i class="fas fa-map-marked-alt"></i> Go to Route</h2>
+          <p>View the pub route map and get directions.</p>
+        </div>
+        <div class="card-arrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </main>
+    
+    <!-- Bottom Navigation -->
+    <nav class="app-nav">
+      <a href="index.html" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a href="scorecard.html" class="nav-item">
+        <i class="fas fa-clipboard"></i>
+        <span>Scorecard</span>
+      </a>
+      <a href="route.html" class="nav-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Route</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="index.js"></script>
+  
+  <!-- Rules Modal -->
+  <div class="modal" id="rules-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-golf-ball"></i> Pub Golf Rules</h3>
+        <button class="close-modal" onclick="closeRulesModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="rules-section">
+          <h4>How to Play</h4>
+          <p>Pub Golf is a drinking game where participants move from pub to pub (or "hole to hole"), with each pub having a designated drink and "par" value.</p>
+        </div>
+        
+        <div class="rules-section">
+          <h4>Basic Rules</h4>
+          <ul class="rules-list">
+            <li><strong>Par</strong> - The target number of sips to finish your drink</li>
+            <li><strong>Scoring</strong> - Lower scores are better, just like in golf</li>
+            <li><strong>Hole in One</strong> - Finishing your drink in one go</li>
+            <li><strong>Stroke</strong> - Each sip counts as one stroke</li>
+            <li><strong>Penalties</strong> - Add strokes for spillages or incomplete drinks</li>
+          </ul>
+        </div>
+        
+        <div class="rules-section">
+          <h4>Scoring Examples</h4>
+          <p>
+            <strong>Par 4 drink:</strong><br>
+            - Finish in 3 sips = -1 (one under par)<br>
+            - Finish in 4 sips = 0 (par)<br>
+            - Finish in 5 sips = +1 (one over par)
+          </p>
+        </div>
+        
+        <div class="rules-section">
+          <h4>Penalties</h4>
+          <ul class="rules-list">
+            <li><strong>Spillage</strong> - +1 stroke penalty</li>
+            <li><strong>Not finishing</strong> - +2 stroke penalty</li>
+            <li><strong>Wrong drink</strong> - +2 stroke penalty</li>
+            <li><strong>Skipping a hole</strong> - Automatic maximum score (+3 over par)</li>
+          </ul>
+        </div>
+        
+        <div class="rules-section">
+          <h4>Winner</h4>
+          <p>The player with the lowest total score at the end of all holes is the winner!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Rules Modal Functions
+    function showRulesModal() {
+      document.getElementById('rules-modal').classList.add('show');
+    }
+    
+    function closeRulesModal() {
+      document.getElementById('rules-modal').classList.remove('show');
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('rules-modal');
+      if (e.target === modal) {
+        closeRulesModal();
+      }
+    });
+  </script>
+</body>
+</html>
